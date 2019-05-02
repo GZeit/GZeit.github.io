@@ -1,11 +1,12 @@
 var character;
+var canvas;
 var beta = 0;
-window.addEventListener("deviceorientation", handleOrientation, true);
+/*window.addEventListener("deviceorientation", handleOrientation, true);
 handleOrientation = function(event){
   //var alpha    = event.alpha;
   beta = event.beta;
   //var gamma    = event.gamma;
-}
+}*/
 var GameScreen = {
     canvas : document.getElementById("myCanvas"),
     start : function(){
@@ -20,9 +21,22 @@ var GameScreen = {
     }
 }
 
+var orientation = screen.msOrientation || screen.mozOrientation || (screen.orientation || {}).type;
+
 
 function startGame() {
-    character = new piece(30, 30, "red", 80, 75);
+  /*  if (orientation === "landscape-primary") {
+        console.log("That looks good.");
+        character = new piece(30, 30, 0, canvas.height - 30, "red");
+        GameScreen.start();
+      } else if (orientation === "landscape-secondary") {
+        console.log("Mmmh... the screen is upside down!");
+      } else if (orientation === "portrait-secondary" || orientation === "portrait-primary") {
+        console.log("Mmmh... you should rotate your device to landscape");
+      } else if (orientation === undefined) {
+        console.log("The orientation API isn't supported in this browser :("); 
+      }*/
+    character = new piece(30, 30, 0, canvas.height - 30, "red");
     GameScreen.start();
 }
 
@@ -99,7 +113,7 @@ function piece(width, height, x, y, color) {
 }*/
 
 function updateCanvas() {
-    myGameArea.clear();
+    GameScreen.clear();
     character.newPos();
     character.update();
 }
@@ -107,3 +121,9 @@ function updateCanvas() {
 function accelerate(n) {
     character.gravity = n;
 }
+function myFunction() {
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(0, c.height - 100, 100, 100);
+  }
