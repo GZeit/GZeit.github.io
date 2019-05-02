@@ -13,10 +13,11 @@ var geometry = new THREE.BoxGeometry( 1, 1, 1 );
 var material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
 var cube = new THREE.Mesh( geometry, material );
 scene.add( cube );
-controls = new THREE.DeviceOrientationControls(cube, true);
+var controls = new THREE.DeviceOrientationControls(camera, true);
 camera.position.z = 5;
+controls.update;
 
-window.addEventListener("deviceorientation", handleOrientation, true);
+//window.addEventListener("deviceorientation", handleOrientation, true);
 
 
 var animate = function () {
@@ -24,7 +25,7 @@ var animate = function () {
 
    // cube.rotation.x += 0.01;
    // cube.rotation.y += 0.01;
-
+    controls.update();
     renderer.render( scene, camera );
 };
 
