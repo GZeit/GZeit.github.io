@@ -159,7 +159,7 @@ function init(){
     console.log("unstuck");
     running = true;
     refresh = 10;
-    alphaStart = 0;
+    alphaStart = alpha;
     player = new character();
 }
 
@@ -264,7 +264,7 @@ var orientation = screen.msOrientation || screen.mozOrientation || (screen.orien
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function (event){
-        alpha = event.alpha * (-1);
+        alpha = event.alpha - alphaStart;
     }, true)
 } else {
     alert("Sorry, ihr Gerät unterstützt keine Bildschirmorientierung!");
