@@ -264,7 +264,7 @@ var orientation = screen.msOrientation || screen.mozOrientation || (screen.orien
 
 if (window.DeviceOrientationEvent) {
     window.addEventListener("deviceorientation", function (event){
-        alpha = event.alpha;
+        alpha = event.alpha * (-1);
     }, true)
 } else {
     alert("Sorry, ihr Gerät unterstützt keine Bildschirmorientierung!");
