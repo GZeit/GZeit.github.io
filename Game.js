@@ -171,7 +171,33 @@ function init(){
     player = new character();
     player.setAlpha();
 }
-
+function drawScore(){
+    
+    ctx.fillStyle = "black";
+    ctx.font = "28px Calibri";
+    ctx.textAlign = "center";
+    if (score >= 10){
+        ctx.font = "20px Calibri";
+        ctx.fillStyle = "orange";
+        if(score >= 30){
+            ctx.fillStyle = "brown";
+        } 
+        if(score >= 60){
+            ctx.fillStyle = "red";
+        } 
+        if (score >= 100){
+            ctx.font = "14px Calibri";
+            ctx.fillText(score, 400, 205);
+        }else {
+            ctx.fillText(score, 400, 206);
+        }
+    }else {
+        ctx.fillText(score, 400, 209);
+    }
+    
+    
+    
+}
 function draw(){
     if(running) {
         setScreen();
@@ -187,6 +213,7 @@ function draw(){
             c.draw();
             //console.log("drew Radius ", c.radius);
         });
+        drawScore();
         ctx.restore();
         
        // ctx.clearRect(0, 0, canvas.width, canvas.height);  
@@ -198,7 +225,7 @@ function draw(){
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.parentNode.removeChild(canvas);					
-        showInfoScreen("Score: "+ score +" zum Wiederholen klicken. start: " + d +" End: " + e + " a: "+ f + " aS: " +alphaStart);
+        showInfoScreen("Score: "+ score +" zum Wiederholen klicken. start: "/* + d +" End: " + e + " a: "+ f + " aS: " +alphaStart*/);
     }
     
 }
