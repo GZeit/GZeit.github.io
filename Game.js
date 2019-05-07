@@ -29,7 +29,7 @@ var CHARH = 20;
 
 var lastAlpha = 0;
 var alpha = 0;
-var alphaStart = 0;
+var alphaStart;
 var alphCalc = 0;
 //var alphas = 0;
 var refreshID;
@@ -210,7 +210,7 @@ function character(){
     this.posX = XINIT;
     this.posY = YINIT;
     this.a = 0;
-    //alphaStart = alpha;
+    alphaStart = alpha;
 
     this.newPos = function(){
         this.a = (alpha - alphaStart) % 360;
