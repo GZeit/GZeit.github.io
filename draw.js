@@ -15,3 +15,5 @@ window.addEventListener("deviceorientation", function(event) {
 	document.querySelector("#mag_gamma").innerHTML = "gamma = " + event.gamma;
 }, true);
 
+
+
