@@ -169,7 +169,7 @@ function init(){
     refresh = 10;
     alphaStart = alpha;
     player = new character();
-    player.newPos();
+    player.setAlpha();
 }
 
 function draw(){
@@ -210,7 +210,7 @@ function character(){
     this.posX = XINIT;
     this.posY = YINIT;
     this.a = 0;
-    alphaStart = alpha;
+    //alphaStart = alpha;
 
     this.newPos = function(){
         this.a = (alpha - alphaStart) % 360;
@@ -227,6 +227,10 @@ function character(){
             alphCalc = 0;
         };
         lastAlpha = this.a;
+    };
+
+    this.setAlpha = function(){
+        alphaStart = alpha;
     };
 
     this.collision = function(){ 
