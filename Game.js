@@ -122,6 +122,7 @@ function showInfoScreen(txt){
         init();
         //Startet Bildschirmwiederholung für Spiel
         refreshID = setInterval(draw, refresh);
+        ScreenOrientation.lock("landscape-primary");
         canvas.webkitRequestFullScreen();                
     }, false);
 }
