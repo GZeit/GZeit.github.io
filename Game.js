@@ -169,6 +169,7 @@ function init(){
     refresh = 10;
     alphaStart = alpha;
     player = new character();
+    player.newPos();
 }
 
 function draw(){
@@ -208,7 +209,7 @@ function character(){
 
     this.posX = XINIT;
     this.posY = YINIT;
-    this.a;
+    this.a = 0;
     alphaStart = alpha;
 
     this.newPos = function(){
@@ -216,6 +217,8 @@ function character(){
         if (this.a < 0){
             this.a += 360;
         }
+        console.log(alpha, " - ", alphaStart, " = ", this.a);
+
       //  console.log("alpha: ", this.a);
        // console.log("alpha: ", alphas, " old: ", lastAlpha);
        // console.log("x: ", this.posX, " y: ", this.posY);
@@ -229,11 +232,12 @@ function character(){
     this.collision = function(){ 
         circles.map(function(c){
             if(c.radius < 30 && c.radius > 10){
-              /*  this.a = alpha % 360;
+                this.a = (alpha - alphaStart) % 360;
                 if (this.a < 0){
                     this.a += 360;
-                }*/
-                var ag = 360 - a;
+                }
+                console.log("this a: ", this.a);
+                var ag = 360 - this.a;
                 console.log("alpha G: ", ag);
                 console.log("start: ", c.dStart, "end: ", c.dEnd);
                 var b =  c.dEnd - c.dStart;
@@ -242,7 +246,7 @@ function character(){
                         running = false;
                         d = c.dStart;
                         e = c.dEnd;
-                        f = this.a;
+                        f = ag;
                     }else {
 
                     }
@@ -252,7 +256,7 @@ function character(){
                         running = false;
                         d = c.dStart;
                         e = c.dEnd;
-                        f = this.a;
+                        f = ag;
                     }else {
 
                     }
