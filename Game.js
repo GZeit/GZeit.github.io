@@ -225,8 +225,10 @@ function character(){
         alphCalc = this.a - lastAlpha;
         if(Math.abs(alphCalc) < 1) {
             alphCalc = 0;
-        };
-        lastAlpha = this.a;
+        }else {
+            lastAlpha = this.a;
+        }
+       
     };
 
     this.setAlpha = function(){
