@@ -225,10 +225,10 @@ function character(){
     this.collision = function(){ 
         circles.map(function(c){
             if(c.radius < 30 && c.radius > 10){
-                this.a = alpha % 360;
+              /*  this.a = alpha % 360;
                 if (this.a < 0){
                     this.a += 360;
-                }
+                }*/
                 var ag = 360 - a;
                 console.log("alpha G: ", ag);
                 console.log("start: ", c.dStart, "end: ", c.dEnd);
