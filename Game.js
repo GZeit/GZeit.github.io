@@ -42,6 +42,10 @@ var speed = 1;
 // empfindlicher je kleiner
 var sensitivity = 4;
 
+var d;
+var e;
+var f;
+
 var circles = [];
 var score = 0;
 circles[0] = new circle(800);
@@ -193,7 +197,7 @@ function draw(){
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.parentNode.removeChild(canvas);					
-        showInfoScreen("Score: "+ score +" zum Wiederholen klicken.");
+        showInfoScreen("Score: "+ score +" zum Wiederholen klicken. " + d +"  " + e + "  "+ f);
     }
     
 }
@@ -236,6 +240,9 @@ function character(){
                 if(b == 60){
                     if(!(ag < c.dEnd && ag > c.dStart)){
                         running = false;
+                        d = c.dStart;
+                        e = c.dEnd;
+                        f = this.a;
                     }else {
 
                     }
@@ -243,6 +250,9 @@ function character(){
                     console.log("not 60");
                     if(!(ag < c.dEnd || ag > c.dStart)){
                         running = false;
+                        d = c.dStart;
+                        e = c.dEnd;
+                        f = this.a;
                     }else {
 
                     }
