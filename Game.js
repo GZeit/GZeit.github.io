@@ -205,7 +205,7 @@ function character(){
     this.posX = XINIT;
     this.posY = YINIT;
     this.a;
-    alphaStart = alpha;
+    //alphaStart = alpha;
 
     this.newPos = function(){
         this.a = (alpha - alphaStart) % 360;
