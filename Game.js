@@ -198,7 +198,7 @@ function draw(){
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 		canvas.parentNode.removeChild(canvas);					
-        showInfoScreen("Score: "+ score +" zum Wiederholen klicken. " + d +"  " + e + "  "+ f);
+        showInfoScreen("Score: "+ score +" zum Wiederholen klicken. start: " + d +" End: " + e + " a: "+ f + " aS: " +alphaStart);
     }
     
 }
